@@ -1,5 +1,5 @@
 const getSite = () =>
-  fetch("https://admin.nextjavascript.com/fake-api/header")
+  fetch("https://admin.nextjavascript.com/fake-api/sites")
     .then((res) => res.json())
     .then((data) => {
       const { heading, subheading } = data;
