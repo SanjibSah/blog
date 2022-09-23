@@ -19,7 +19,7 @@ const postForm = () => {
   const readMoreBody = $("#summernote").summernote("code");
   const innerImageUrl = innerImageUrlElement.value;
 
-  fetch("http://localhost:3000/posts", {
+  fetch("https://admin.nextjavascript.com/fake-api/posts", {
     method: "POST",
     body: JSON.stringify({
       published_date,

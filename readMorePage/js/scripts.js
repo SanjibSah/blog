@@ -1,8 +1,8 @@
 /*!
-* Start Bootstrap - Blog Post v5.0.8 (https://startbootstrap.com/template/blog-post)
-* Copyright 2013-2022 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-blog-post/blob/master/LICENSE)
-*/
+ * Start Bootstrap - Blog Post v5.0.8 (https://startbootstrap.com/template/blog-post)
+ * Copyright 2013-2022 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-blog-post/blob/master/LICENSE)
+ */
 // This file is intentionally blank
 // Use this file to add JavaScript to your project
 
@@ -11,12 +11,11 @@ import categories from "../../categories/categories.js";
 const url = new URLSearchParams(window.location.search);
 const userId = url.get("index-id");
 
-fetch(`http://localhost:3000/posts/${userId}`)
-.then((res) => res.json())
-.then((post) =>{
-    
-        const {title, author, published_date, innerImageUrl,readMoreBody} = post;  
-       const readMoreHtml = `
+fetch(`https://admin.nextjavascript.com/fake-api/posts/${userId}`)
+  .then((res) => res.json())
+  .then((post) => {
+    const { title, author, published_date, innerImageUrl, readMoreBody } = post;
+    const readMoreHtml = `
             
             <header class="mb-4">
                 
@@ -36,7 +35,7 @@ fetch(`http://localhost:3000/posts/${userId}`)
         
         
         `;
-    
+
     document.querySelector("#readMe").innerHTML = readMoreHtml;
-});
+  });
 categories();

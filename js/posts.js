@@ -1,10 +1,11 @@
-const getPosts = () => fetch(" http://localhost:3000/posts?_sort=id&_order=desc")
-.then((resp) => resp.json())
-.then((posts) =>{
-    const [featured_post, ...restPosts] = posts;
-    const {title, body, published_date, image_url, id} = featured_post;
+const getPosts = () =>
+  fetch(" https://admin.nextjavascript.com/fake-api/posts?_sort=id&_order=desc")
+    .then((resp) => resp.json())
+    .then((posts) => {
+      const [featured_post, ...restPosts] = posts;
+      const { title, body, published_date, image_url, id } = featured_post;
 
-    const html = `
+      const html = `
     <a href="#!"><img class="card-img-top" src="${image_url}" alt="${title}" width="850" height="350" /></a>
     <div class="card-body">
         <div class="small text-muted">${published_date}</div>
@@ -13,10 +14,10 @@ const getPosts = () => fetch(" http://localhost:3000/posts?_sort=id&_order=desc"
         <a class="btn btn-primary" href="./readMorePage/index.html?index-id=${id}">Read more →</a>
     </div>
     `;
-    document.querySelector("#featuredPost").innerHTML = html;
+      document.querySelector("#featuredPost").innerHTML = html;
 
-    const multiplePostHtml = restPosts.map((post) =>{
-        const {title, body, published_date, image_url,id} = post;  
+      const multiplePostHtml = restPosts.map((post) => {
+        const { title, body, published_date, image_url, id } = post;
         return `
         <div class="col-lg-6">
                             
@@ -32,7 +33,8 @@ const getPosts = () => fetch(" http://localhost:3000/posts?_sort=id&_order=desc"
                            
         </div>
         `;
+      });
+      document.querySelector("#postLists").innerHTML =
+        multiplePostHtml.join("\n");
     });
-    document.querySelector("#postLists").innerHTML = multiplePostHtml.join("\n");
-});
 export default getPosts;
