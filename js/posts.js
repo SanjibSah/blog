@@ -12,7 +12,7 @@ const getPosts = () =>
         <h2 class="card-title h4">${title}</h2>
         <p class="card-text">${body}</p>
         <a class="btn btn-primary" href="./readMorePage/index.html?index-id=${id}">Read more →</a>
-        <button class="btn btn-danger">X</button>
+        <button class="btn btn-danger delete-button" id="${id}">X</button>
     </div>
     `;
       document.querySelector("#featuredPost").innerHTML = html;
@@ -29,7 +29,7 @@ const getPosts = () =>
                     <h2 class="card-title h4">${title}</h2>
                     <p class="card-text">${body}</p>
                     <a class="btn btn-primary" href="./readMorePage/index.html?index-id=${id}">Read more →</a>
-                    <button class="btn btn-danger">X</button>
+                    <button class="btn btn-danger delete-button" id="${id}">X</button>
                 </div>
             </div>
                            
