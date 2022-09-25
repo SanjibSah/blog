@@ -11,7 +11,8 @@ categories();
 
 const url = new URLSearchParams(window.location.search);
 const userId = url.get("index-id");
+const deleteId = document.querySelector(`#${userId}`);
 
-userId.onclick = (e) =>{
+deleteId.onclick = (e) =>{
     deleteBtnFunction();
 }
