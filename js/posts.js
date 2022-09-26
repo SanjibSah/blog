@@ -43,8 +43,12 @@ const getPosts = () =>
       deleteClass.forEach((btn) =>{
         btn.addEventListener("click", ()=>{
           const deleteId = btn.getAttribute("delete-id");
-          deleteBtnFunction(deleteId);
-          btn.parentElement.parentElement.classList.add("d-none");
+          if(confirm("Do you want delete a post!")){
+
+            deleteBtnFunction(deleteId);
+            btn.parentElement.parentElement.classList.add("d-none");
+          }
+          
         })
       })
     });
