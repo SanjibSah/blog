@@ -8,10 +8,9 @@
 
 //const deleteBtn = document.querySelector(".delete-button");
 
-const deleteBtnFunction = () => {
-    const url = new URLSearchParams(window.location.search);
-    const userId = url.get("index-id");
-    fetch(`https://admin.nextjavascript.com/fake-api/posts/${userId}`,{
+const deleteBtnFunction = (id) => {
+    
+    fetch(`https://admin.nextjavascript.com/fake-api/posts/${id}`,{
         method:"DELETE",
         headers: {
                 "Content-Type": "application/json",

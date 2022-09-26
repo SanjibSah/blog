@@ -1,3 +1,4 @@
+import deleteBtnFunction from "./delete.js";
 const getPosts = () =>
   fetch(" https://admin.nextjavascript.com/fake-api/posts?_sort=id&_order=desc")
     .then((resp) => resp.json())
@@ -12,7 +13,7 @@ const getPosts = () =>
         <h2 class="card-title h4">${title}</h2>
         <p class="card-text">${body}</p>
         <a class="btn btn-primary" href="./readMorePage/index.html?index-id=${id}">Read more →</a>
-        <button class="btn btn-danger delete-button" id="${id}">X</button>
+        <button class="btn btn-danger delete-button" delete-id="${id}">X</button>
     </div>
     `;
       document.querySelector("#featuredPost").innerHTML = html;
@@ -29,7 +30,7 @@ const getPosts = () =>
                     <h2 class="card-title h4">${title}</h2>
                     <p class="card-text">${body}</p>
                     <a class="btn btn-primary" href="./readMorePage/index.html?index-id=${id}">Read more →</a>
-                    <button class="btn btn-danger delete-button" id="${id}">X</button>
+                    <button class="btn btn-danger delete-button" delete-id="${id}">X</button>
                 </div>
             </div>
                            
@@ -38,5 +39,13 @@ const getPosts = () =>
       });
       document.querySelector("#postLists").innerHTML =
         multiplePostHtml.join("\n");
+      const deleteClass = document.querySelectorAll(".delete-button");
+      deleteClass.forEach((btn) =>{
+        btn.addEventListener("click", ()=>{
+          const deleteId = btn.getAttribute("delete-id");
+          deleteBtnFunction(deleteId);
+          btn.parentElement.parentElement.classList.add("d-none");
+        })
+      })
     });
 export default getPosts;
