@@ -46,7 +46,8 @@ const getPosts = () =>
           if(confirm("Do you want delete a post!")){
 
             deleteBtnFunction(deleteId);
-            btn.parentElement.parentElement.classList.add("d-none");
+            btn.parentElement.parentElement.remove();
+         
           }
           
         })
